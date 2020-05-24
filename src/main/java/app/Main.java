@@ -6,24 +6,24 @@ public class Main
 {
     public static void main(String[] args)
     {
-        ProcessBuilder pb = new ProcessBuilder("clear");
+        //ProcessBuilder pb = new ProcessBuilder("clear");
 
         Scanner input = new Scanner(System.in);
 
-        try
-        {
-            //Process process = Runtime.getRuntime().exec("clear");
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
+        //Process process = Runtime.getRuntime().exec("clear");
 
+        String command = "";
+
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
+        while(!command.equals("exit"))
+        {
             System.out.print("NWC > ");
-            input.nextLine();
+            command = input.nextLine();
         }
-        catch(Exception ex)
-        {
-            System.out.println("error");
-        }
+        
 
-        System.out.println("Hello world");
+        System.out.println("Closing NW Center...");
     }    
 }
