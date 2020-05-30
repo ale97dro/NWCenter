@@ -33,16 +33,16 @@ public class LogParser
                     isDate(date);
                     String command = in.readLine();
 
-                    if (isPing(command))
-                    {
+                    //if (isPing(command))
+                    //{
                         String[] commandParts = command.split(" ");
 
                         if (commandParts.length == SUCCEED_PARTS)
                             logs.add(succeedPing(commandParts, date));
                         else
-                            if (commandParts.length == FAILED_PARTS)
+                            //if (commandParts.length == FAILED_PARTS)
                                 logs.add(failedPing(commandParts, date));
-                    }
+                    //}
 
                 }
             }
@@ -63,15 +63,20 @@ public class LogParser
         String destinationIp = command[2].substring(1, command[2].length() - 1);
         double time = Double.parseDouble(command[14].substring(5));
 
-        return new Log(parseDate(date), parseWeekDay(date), time, destination, destinationIp);
+        return new Log(parseDate(date), parseWeekDay(date), time, destination, destinationIp, "SUCCEED");
     }
 
     private static Log failedPing(String[] command, String date)
     {
-        String destination = command[1];
-        String destinationIp = command[2].substring(1, command[2].length() - 1);
+        if(command.length >= 3)
+        {
+            String destination = command[1];
+            String destinationIp = command[2].substring(1, command[2].length() - 1);
 
-        return new Log(parseDate(date), parseWeekDay(date), 0, destination, destinationIp);
+            return new Log(parseDate(date), parseWeekDay(date), 0, destination, destinationIp, "FAILED");
+        }
+
+        return new Log(parseDate(date), parseWeekDay(date), 0, null, null, "FAILED");
     }
 
     private static void isDate(String date) throws DateParseException

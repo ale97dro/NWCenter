@@ -1,21 +1,24 @@
 package commandparser;
 
-import app.Console;
-import command.CleanCommand;
-import command.Command;
-import command.LoadCommand;
+import command.*;
 import console.ConsoleWriter;
+import model.DBContainer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandParser
 {
     private ConsoleWriter writer;
+    private DBContainer container;
 
-    public CommandParser(ConsoleWriter writer)
+    public CommandParser(ConsoleWriter writer, DBContainer container)
     {
+        this.container = container;
         this.writer = writer;
     }
 
-    public Command parse(String text)
+    public Command parse (String text)
     {
         String[] command = text.split(" ");
 
@@ -27,12 +30,55 @@ public class CommandParser
         {
             case "clear":
                 return new CleanCommand(writer);
-            case "load":
-                return new LoadCommand(command[1]);
             case "exit":
                 return null;
+            case "load":
+                return new LoadCommand(command[1], container);
+            case "show":
+                return parseShow(command);
         }
 
         return null;
+    }
+
+    private Command parseShow(String[] command)
+    {
+        /*
+            0: show
+         */
+
+        String logsType = "";
+        List<String> logsDb = new ArrayList<>();
+        String startTime = "";
+        String endTime = "";
+
+
+        for(int i = 1; i < command.length; i++)
+        {
+            switch (command[i])
+            {
+                case "-f":
+                    logsType = "FAILED";
+                    break;
+                case "-s":
+                    logsType = "SUCCEED";
+                    break;
+                case "-db":
+                    logsDb.add(command[++i]);
+                    break;
+                case "-st":
+                    startTime = command[++i];
+                    break;
+                case "-et":
+                    endTime = command[++i];
+                    break;
+                default:
+                    return null;
+            }
+        }
+
+        System.out.println("ciao");
+
+        return new ShowCommand(container, writer, logsDb, logsType, startTime, endTime);
     }
 }

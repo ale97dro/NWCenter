@@ -13,6 +13,11 @@ public class LogDB
         this.logs = logs;
     }
 
+    public List<Log> getLogs()
+    {
+        return logs;
+    }
+
     public String getName()
     {
         return name;

@@ -2,7 +2,7 @@ package command;
 
 import console.ConsoleWriter;
 
-public class CleanCommand implements Command<Void>
+public class CleanCommand extends Command
 {
     private ConsoleWriter writer;
 
@@ -12,7 +12,7 @@ public class CleanCommand implements Command<Void>
     }
 
     @Override
-    public Void execute()
+    public void execute()
     {
         //out.print("\033[H\033[2J");
         //out.flush();
@@ -20,7 +20,7 @@ public class CleanCommand implements Command<Void>
         writer.print("\033[H\033[2J");
        writer.flush();
 
-        return null;
+        //return null;
 
     }
 }
