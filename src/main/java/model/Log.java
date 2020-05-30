@@ -5,13 +5,15 @@ import java.time.LocalDateTime;
 public class Log 
 {
     private LocalDateTime date;
-    private int time;
+    private String weekDay;
+    private double time;
     private String destination;
     private String destinationIp;
 
-    public Log(LocalDateTime date, int time, String destination, String destinationIp)
+    public Log(LocalDateTime date, String weekDay, double time, String destination, String destinationIp)
     {
         this.date = date;
+        this.weekDay = weekDay;
         this.time = time;
         this.destination = destination;
         this.destinationIp = destinationIp;
@@ -22,7 +24,12 @@ public class Log
         return date;
     }
 
-    public int getTime() 
+    public String getWeekDay()
+    {
+        return weekDay;
+    }
+
+    public double getTime()
     {
         return time;
     }

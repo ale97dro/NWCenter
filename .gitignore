@@ -11,6 +11,9 @@
 .settings/
 .vscode/
 
+.idea/
+NWCenter.iml
+
 # Log file
 *.log
 

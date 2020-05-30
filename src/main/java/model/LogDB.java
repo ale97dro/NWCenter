@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class LogDB 
+public class LogDB
 {
     private String name;
     private List<Log> logs;
