@@ -17,12 +17,11 @@ public class LogParser
     private static final int SUCCEED_PARTS = 36;
     private static final int FAILED_PARTS = 22;
 
-    private List<Log> test = new ArrayList<>();
-
-
     public static LogDB parse(String path)
     {
         List<Log> logs = new ArrayList<>();
+
+        path = path.replace("\\", "/");
 
         try(BufferedReader in = new BufferedReader(new FileReader(path)))
         {
@@ -31,7 +30,6 @@ public class LogParser
                 String date = "";
                 while((date = in.readLine()) != null)
                 {
-                    //date = in.readLine();
                     isDate(date);
                     String command = in.readLine();
 
@@ -50,17 +48,13 @@ public class LogParser
             }
             catch(DateParseException e)
             {
-                System.out.println("ciao");
             }
-
-
         }
         catch(IOException e)
         {
-            System.out.println("ciao");
         }
 
-        return new LogDB(path, logs);
+        return new LogDB(dbNameParse(path), logs);
     }
 
     private static Log succeedPing(String[] command, String date)
@@ -69,7 +63,7 @@ public class LogParser
         String destinationIp = command[2].substring(1, command[2].length() - 1);
         double time = Double.parseDouble(command[14].substring(5));
 
-        return new Log(parseDate(date), date.split(" ")[0], time, destination, destinationIp);
+        return new Log(parseDate(date), parseWeekDay(date), time, destination, destinationIp);
     }
 
     private static Log failedPing(String[] command, String date)
@@ -77,12 +71,12 @@ public class LogParser
         String destination = command[1];
         String destinationIp = command[2].substring(1, command[2].length() - 1);
 
-        return new Log(parseDate(date), date.split(" ")[0], 0, destination, destinationIp);
+        return new Log(parseDate(date), parseWeekDay(date), 0, destination, destinationIp);
     }
 
     private static void isDate(String date) throws DateParseException
     {
-        String day = date.split(" ")[0].toUpperCase();
+        String day = parseWeekDay(date).toUpperCase();
 
         switch(day)
         {
@@ -103,7 +97,6 @@ public class LogParser
     {
         String[] dateParts = date.split(" ");
 
-        //String weekDay = dateParts[0];
         String month =  dateParts[1];
         int day = Integer.parseInt(dateParts[2]);
         String time = dateParts[3];
@@ -115,6 +108,18 @@ public class LogParser
         int seconds = Integer.parseInt(timeParts[2]);
 
         return LocalDateTime.of(year, Month.valueOf(month.toUpperCase()), day, hour, minutes, seconds);
+    }
+
+    private static String dbNameParse(String fullPath)
+    {
+        String[] pathParts = fullPath.split("/");
+
+        return pathParts[pathParts.length - 1];
+    }
+
+    private static String parseWeekDay(String date)
+    {
+        return date.split(" ")[0];
     }
 
     private static boolean isPing(String command)

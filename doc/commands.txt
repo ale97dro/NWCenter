@@ -1,0 +1,13 @@
+Handle log db:
+load <db_path> ---> add a new log db
+uload <db_path> ---> delete a log db
+
+Show logs:
+show [-f|-s] [-db <db_name>] [-st <start_time>] [-et <end_time>] 
+
+Options:
+ -f: show failed commands
+ -s: show succeed commands
+ -db: choose a db (if not, show all db)
+ -st: choose a start time --> formats: YYYY-MM-DD or YYYY-MM-DD-mm-hh or mm:hh
+ -et: choose an end time --> formats: YYYY-MM-DD or YYYY-MM-DD-mm-hh or mm:hh
