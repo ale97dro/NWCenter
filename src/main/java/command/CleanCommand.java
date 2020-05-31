@@ -2,7 +2,7 @@ package command;
 
 import console.ConsoleWriter;
 
-public class CleanCommand extends Command
+public class CleanCommand implements Command
 {
     private ConsoleWriter writer;
 
@@ -19,8 +19,5 @@ public class CleanCommand extends Command
 
         writer.print("\033[H\033[2J");
        writer.flush();
-
-        //return null;
-
     }
 }

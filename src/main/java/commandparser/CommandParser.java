@@ -80,6 +80,6 @@ public class CommandParser
 
         //System.out.println("ciao");
 
-        return new ShowCommand(container, writer, logsDb, logsStatus, startTime, endTime);
+        return ShowCommand.getInstance(container, writer, logsDb, logsStatus, startTime, endTime);
     }
 }

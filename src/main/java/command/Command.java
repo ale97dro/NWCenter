@@ -1,6 +1,6 @@
 package command;
 
-public abstract class Command
+public interface Command
 {
-    public abstract void execute();
+    void execute();
 }

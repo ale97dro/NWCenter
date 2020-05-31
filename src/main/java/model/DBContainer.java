@@ -45,4 +45,9 @@ public class DBContainer
 
         return null;
     }
+
+    public List<LogDB> getAllDbs()
+    {
+        return dbs;
+    }
 }

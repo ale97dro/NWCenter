@@ -4,7 +4,7 @@ import logparser.LogParser;
 import model.DBContainer;
 import model.LogDB;
 
-public class LoadCommand extends Command
+public class LoadCommand implements Command
 {
     private String path;
     private DBContainer container;

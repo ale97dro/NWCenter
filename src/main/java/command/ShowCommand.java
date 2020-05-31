@@ -10,20 +10,36 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowCommand extends Command
+public class ShowCommand implements Command
 {
-    private DBContainer container;
     private ConsoleWriter writer;
-    private List<String> dbs;
+    private List<LogDB> dbs;
     private LogStatus logsStatus;
     private String startTime;
     private String endTime;
 
-    public ShowCommand(DBContainer container, ConsoleWriter writer, List<String> dbs, LogStatus logsStatus, String startTime, String endTime)
+    public static ShowCommand getInstance(DBContainer container, ConsoleWriter writer, List<String> dbs, LogStatus logsStatus, String startTime, String endTime)
     {
-        this.container = container;
+        ShowCommand command = new ShowCommand(writer, logsStatus, startTime, endTime);
+
+        if(dbs.size() == 0)
+            command.dbs = container.getAllDbs();
+        else
+        {
+            command.dbs = new ArrayList<>();
+            for (String d : dbs)
+            {
+                if (container.getDb(d) != null)
+                    command.dbs.add(container.getDb(d));
+            }
+        }
+
+        return command;
+    }
+
+    private ShowCommand(ConsoleWriter writer, LogStatus logsStatus, String startTime, String endTime)
+    {
         this.writer = writer;
-        this.dbs = dbs;
         this.logsStatus = logsStatus;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -33,14 +49,11 @@ public class ShowCommand extends Command
     @Override
     public void execute()
     {
-        LogDB db = container.getDb(dbs.get(0));
+        List<Log> filteredLogs = new ArrayList<>();
 
-        if(db == null)
-            return;
-
-        List<Log> filteredLogs;
-
-        filteredLogs = filterLogsByType(db.getLogs());
+        //for each db, extract logs
+        for(LogDB db : dbs)
+            filteredLogs.addAll(filterLogsByType(db.getLogs()));
 
 
         for(Log l : filteredLogs)
