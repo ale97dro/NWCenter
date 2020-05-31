@@ -1,0 +1,54 @@
+Tue May 26 05:32:30 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=54 time=18.2 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 18.294/18.294/18.294/0.000 ms
+Tue May 26 05:32:35 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=54 time=13.5 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.500/13.500/13.500/0.000 ms
+Tue May 26 05:32:40 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=54 time=16.9 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 16.987/16.987/16.987/0.000 ms
+Tue May 26 05:32:45 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=54 time=12.9 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 12.983/12.983/12.983/0.000 ms
+Tue May 26 05:32:50 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. --- google.com ping statistics --- 1 packets transmitted, 0 received, 100% packet loss, time 0ms
+Tue May 26 05:33:05 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. --- google.com ping statistics --- 1 packets transmitted, 0 received, 100% packet loss, time 0ms
+Tue May 26 05:33:20 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. --- google.com ping statistics --- 1 packets transmitted, 0 received, 100% packet loss, time 0ms
+Tue May 26 05:33:35 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. --- google.com ping statistics --- 1 packets transmitted, 0 received, 100% packet loss, time 0ms
+Tue May 26 05:33:50 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. --- google.com ping statistics --- 1 packets transmitted, 0 received, 100% packet loss, time 0ms
+Tue May 26 05:34:05 CEST 2020
+
+Tue May 26 05:34:30 CEST 2020
+
+Tue May 26 05:34:55 CEST 2020
+
+Tue May 26 05:35:20 CEST 2020
+
+Tue May 26 05:35:45 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.8 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.804/13.804/13.804/0.000 ms
+Tue May 26 05:35:50 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.3 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.325/13.325/13.325/0.000 ms
+Tue May 26 05:35:55 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.8 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.864/13.864/13.864/0.000 ms
+Tue May 26 05:36:00 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.6 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.635/13.635/13.635/0.000 ms
+Tue May 26 05:36:06 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=14.5 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 14.583/14.583/14.583/0.000 ms
+Tue May 26 05:36:11 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=14.7 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 14.796/14.796/14.796/0.000 ms
+Tue May 26 05:36:16 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=14.3 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 14.387/14.387/14.387/0.000 ms
+Tue May 26 05:36:21 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=12.8 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 12.819/12.819/12.819/0.000 ms
+Tue May 26 05:36:26 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=14.6 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 14.664/14.664/14.664/0.000 ms
+Tue May 26 05:36:31 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.0 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.067/13.067/13.067/0.000 ms
+Tue May 26 05:36:36 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.9 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.942/13.942/13.942/0.000 ms
+Tue May 26 05:36:41 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.5 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.553/13.553/13.553/0.000 ms
+Tue May 26 05:36:46 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.1 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.110/13.110/13.110/0.000 ms
+Tue May 26 05:36:51 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.2 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.225/13.225/13.225/0.000 ms
