@@ -9,16 +9,16 @@ public class Log
     private double time;
     private String destination;
     private String destinationIp;
-    private String type;
+    private LogStatus status;
 
-    public Log(LocalDateTime date, String weekDay, double time, String destination, String destinationIp, String type)
+    public Log(LocalDateTime date, String weekDay, double time, String destination, String destinationIp, LogStatus status)
     {
         this.date = date;
         this.weekDay = weekDay;
         this.time = time;
         this.destination = destination;
         this.destinationIp = destinationIp;
-        this.type = type;
+        this.status = status;
     }
 
     public LocalDateTime getDate() 
@@ -46,8 +46,8 @@ public class Log
         return destinationIp;
     }
 
-    public String getType()
+    public LogStatus getStatus()
     {
-        return type;
+        return status;
     }
 }

@@ -3,6 +3,7 @@ package commandparser;
 import command.*;
 import console.ConsoleWriter;
 import model.DBContainer;
+import model.LogStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,7 @@ public class CommandParser
             0: show
          */
 
-        String logsType = "";
+        LogStatus logsStatus = LogStatus.ALL;
         List<String> logsDb = new ArrayList<>();
         String startTime = "";
         String endTime = "";
@@ -58,10 +59,10 @@ public class CommandParser
             switch (command[i])
             {
                 case "-f":
-                    logsType = "FAILED";
+                    logsStatus = LogStatus.FAILED;
                     break;
                 case "-s":
-                    logsType = "SUCCEED";
+                    logsStatus = LogStatus.SUCCEED;
                     break;
                 case "-db":
                     logsDb.add(command[++i]);
@@ -77,8 +78,8 @@ public class CommandParser
             }
         }
 
-        System.out.println("ciao");
+        //System.out.println("ciao");
 
-        return new ShowCommand(container, writer, logsDb, logsType, startTime, endTime);
+        return new ShowCommand(container, writer, logsDb, logsStatus, startTime, endTime);
     }
 }

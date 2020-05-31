@@ -3,6 +3,7 @@ package logparser;
 import exception.DateParseException;
 import model.Log;
 import model.LogDB;
+import model.LogStatus;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -63,7 +64,7 @@ public class LogParser
         String destinationIp = command[2].substring(1, command[2].length() - 1);
         double time = Double.parseDouble(command[14].substring(5));
 
-        return new Log(parseDate(date), parseWeekDay(date), time, destination, destinationIp, "SUCCEED");
+        return new Log(parseDate(date), parseWeekDay(date), time, destination, destinationIp, LogStatus.SUCCEED);
     }
 
     private static Log failedPing(String[] command, String date)
@@ -73,10 +74,10 @@ public class LogParser
             String destination = command[1];
             String destinationIp = command[2].substring(1, command[2].length() - 1);
 
-            return new Log(parseDate(date), parseWeekDay(date), 0, destination, destinationIp, "FAILED");
+            return new Log(parseDate(date), parseWeekDay(date), 0, destination, destinationIp, LogStatus.FAILED);
         }
 
-        return new Log(parseDate(date), parseWeekDay(date), 0, null, null, "FAILED");
+        return new Log(parseDate(date), parseWeekDay(date), 0, null, null, LogStatus.FAILED);
     }
 
     private static void isDate(String date) throws DateParseException

@@ -4,6 +4,7 @@ import console.ConsoleWriter;
 import model.DBContainer;
 import model.Log;
 import model.LogDB;
+import model.LogStatus;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,22 +12,19 @@ import java.util.List;
 
 public class ShowCommand extends Command
 {
-    private static final String FAILED_TAG = "FAILED";
-    private static final String SUCCEED_TAG = "SUCCEED";
-
     private DBContainer container;
     private ConsoleWriter writer;
     private List<String> dbs;
-    private String logsType;
+    private LogStatus logsStatus;
     private String startTime;
     private String endTime;
 
-    public ShowCommand(DBContainer container, ConsoleWriter writer, List<String> dbs, String logsType, String startTime, String endTime)
+    public ShowCommand(DBContainer container, ConsoleWriter writer, List<String> dbs, LogStatus logsStatus, String startTime, String endTime)
     {
         this.container = container;
         this.writer = writer;
         this.dbs = dbs;
-        this.logsType = logsType;
+        this.logsStatus = logsStatus;
         this.startTime = startTime;
         this.endTime = endTime;
     }
@@ -42,12 +40,7 @@ public class ShowCommand extends Command
 
         List<Log> filteredLogs;
 
-        if(logsType.equals(FAILED_TAG))
-            filteredLogs = filterLogsByType(db.getLogs(), FAILED_TAG);
-        else
-            filteredLogs = filterLogsByType(db.getLogs(), SUCCEED_TAG);
-
-
+        filteredLogs = filterLogsByType(db.getLogs());
 
 
         for(Log l : filteredLogs)
@@ -75,8 +68,8 @@ public class ShowCommand extends Command
             log.append(l.getDestination());
             log.append(" ");
 
-            if(l.getType().equals(FAILED_TAG))
-                log.append(l.getType());
+            if(l.getStatus().equals(LogStatus.FAILED))
+                log.append(l.getStatus());
             else
                 log.append(l.getTime());
 
@@ -84,13 +77,18 @@ public class ShowCommand extends Command
         }
     }
 
-    private List<Log> filterLogsByType(List<Log> logs, String type)
+    private List<Log> filterLogsByType(List<Log> logs)
     {
         List<Log> filteredLogs = new ArrayList<>();
 
-        for(Log l : logs)
-            if(l.getType().equals(type))
-                filteredLogs.add(l);
+        if(!logsStatus.equals(LogStatus.ALL))
+        {
+            for(Log l : logs)
+                if(l.getStatus().equals(logsStatus))
+                    filteredLogs.add(l);
+        }
+        else
+            filteredLogs.addAll(logs);
 
         return filteredLogs;
     }
