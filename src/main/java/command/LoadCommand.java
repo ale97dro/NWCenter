@@ -1,5 +1,6 @@
 package command;
 
+import formatter.Formatter;
 import logparser.LogParser;
 import model.DBContainer;
 import model.LogDB;
@@ -16,9 +17,11 @@ public class LoadCommand implements Command
     }
 
     @Override
-    public void execute()
+    public Formatter execute()
     {
         LogDB db = LogParser.parse(path);
         container.addDb(db);
+
+        return null;
     }
 }

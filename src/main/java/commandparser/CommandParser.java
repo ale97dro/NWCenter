@@ -30,11 +30,11 @@ public class CommandParser
             switch (command[0])
             {
                 case "clear":
-                    return new CleanCommand(environment.getWriter());
+                    return new CleanCommand();
                 case "exit":
-                    return new ExitCommand(environment.getWriter());
+                    return new ExitCommand();
                 case "history":
-                    return new HistoryCommand(environment.getWriter(), environment.getHistory());
+                    return new HistoryCommand(environment.getHistory());
                 case "load":
                     return new LoadCommand(command[1], environment.getContainer());
                 case "show":
@@ -87,6 +87,6 @@ public class CommandParser
             }
         }
 
-        return ShowCommand.getInstance(environment.getContainer(), environment.getWriter(), logsDb, logsStatus, startTime, endTime);
+        return ShowCommand.getInstance(environment.getContainer(), logsDb, logsStatus, startTime, endTime);
     }
 }

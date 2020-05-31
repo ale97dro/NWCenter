@@ -1,23 +1,26 @@
 package command;
 
-import console.ConsoleWriter;
+import console.ConsolePrinter;
+import formatter.Formatter;
 
 public class CleanCommand implements Command
 {
-    private ConsoleWriter writer;
+    //private ConsolePrinter writer;
 
-    public CleanCommand(ConsoleWriter writer)
+    public CleanCommand()
     {
-        this.writer = writer;
+        //this.writer = writer;
     }
 
     @Override
-    public void execute()
+    public Formatter execute()
     {
         //out.print("\033[H\033[2J");
         //out.flush();
 
-        writer.print("\033[H\033[2J");
-       writer.flush();
+//        writer.print("\033[H\033[2J");
+//       writer.flush();
+
+       return null;
     }
 }

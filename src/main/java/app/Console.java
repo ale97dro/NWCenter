@@ -3,7 +3,8 @@ package app;
 import command.CleanCommand;
 import command.Command;
 import commandparser.CommandParser;
-import console.ConsoleWriter;
+import console.ConsolePrinter;
+import formatter.Formatter;
 import model.DBContainer;
 import model.Environment;
 
@@ -13,7 +14,7 @@ import java.util.Scanner;
 
 public class Console
 {
-    private ConsoleWriter writer;
+    private ConsolePrinter printer;
     private CommandParser commandParser;
     private Scanner input;
     private String stringCommand;
@@ -24,9 +25,9 @@ public class Console
         input = new Scanner(System.in);
 
         DBContainer container = new DBContainer();
-        writer = new ConsoleWriter(System.out);
+        printer = new ConsolePrinter(System.out);
         List<String> history = new ArrayList<>();
-        Environment environment = new Environment(container, writer, history);
+        Environment environment = new Environment(container, history);
         commandParser = new CommandParser(environment);
     }
 
@@ -35,17 +36,21 @@ public class Console
         //ProcessBuilder pb = new ProcessBuilder("clear");
         //Process process = Runtime.getRuntime().exec("clear");
 
-        new CleanCommand(writer).execute();
+        new CleanCommand().execute();
 
         do
         {
-            writer.print("NWC > ");
+            printer.print("NWC > ");
             stringCommand = input.nextLine();
 
            Command command = commandParser.parse(stringCommand);
 
            if(command != null)
-               command.execute();
+           {
+               Formatter formatter = command.execute();
+               if(formatter != null)
+                formatter.printOnConsole(printer);
+           }
         }
         while(!stringCommand.equals("exit"));
     }

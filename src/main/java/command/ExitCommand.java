@@ -1,19 +1,13 @@
 package command;
 
-import console.ConsoleWriter;
+import formatter.ExitFormatter;
+import formatter.Formatter;
 
 public class ExitCommand implements Command
 {
-    private ConsoleWriter writer;
-
-    public ExitCommand(ConsoleWriter writer)
-    {
-        this.writer = writer;
-    }
-
     @Override
-    public void execute()
+    public Formatter execute()
     {
-        writer.println("Closing NW Center...");
+        return new ExitFormatter();
     }
 }

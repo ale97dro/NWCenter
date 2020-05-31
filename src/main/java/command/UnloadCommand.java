@@ -1,5 +1,6 @@
 package command;
 
+import formatter.Formatter;
 import model.DBContainer;
 
 public class UnloadCommand implements Command
@@ -14,8 +15,10 @@ public class UnloadCommand implements Command
     }
 
     @Override
-    public void execute()
+    public Formatter execute()
     {
         container.removeDb(dbName);
+
+        return null;
     }
 }

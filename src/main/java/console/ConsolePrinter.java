@@ -2,11 +2,11 @@ package console;
 
 import java.io.PrintStream;
 
-public class ConsoleWriter
+public class ConsolePrinter
 {
     private PrintStream out;
 
-    public ConsoleWriter(PrintStream out)
+    public ConsolePrinter(PrintStream out)
     {
         this.out = out;
     }

@@ -1,6 +1,8 @@
 package command;
 
+import formatter.Formatter;
+
 public interface Command
 {
-    void execute();
+    Formatter execute();
 }
