@@ -32,7 +32,7 @@ public class CommandParser
             case "clear":
                 return new CleanCommand(writer);
             case "exit":
-                return null;
+                return new ExitCommand(writer);
             case "load":
                 return new LoadCommand(command[1], container);
             case "show":

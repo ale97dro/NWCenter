@@ -1,13 +1,18 @@
 Handle log db:
 load <db_path> ---> add a new log db
-uload <db_path> ---> delete a log db
+unload <db_path> ---> delete a log db
 
 Show logs:
 show [-f|-s] [-db <db_name>] [-st <start_time>] [-et <end_time>] 
 
 Options:
- -f: show failed commands
- -s: show succeed commands
- -db: choose a db (if not, show all db)
- -st: choose a start time --> formats: YYYY-MM-DD or YYYY-MM-DD-mm-hh or mm:hh
- -et: choose an end time --> formats: YYYY-MM-DD or YYYY-MM-DD-mm-hh or mm:hh
+ -f: show only failed logs
+ -s: show only succeed logs
+ -db: choose a db (if not, show all db). You can select more than 1 db by reiterate the option (example: show -db db1 -db db2)
+ -st: choose a start time --> formats: YYYY-MM-DD or YYYY-MM-DD-mm-hh or mm:hh. The format must be the same of -et
+ -et: choose an end time --> formats: YYYY-MM-DD or YYYY-MM-DD-mm-hh or mm:hh. The format must be the same of -st
+
+
+Other commands:
+clean ---> clean the console
+exit ---> close the application

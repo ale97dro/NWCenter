@@ -15,11 +15,6 @@ public class Console
     private Scanner input;
     private String stringCommand;
 
-    public static Console create()
-    {
-        return new Console();
-    }
-
     public Console()
     {
         DBContainer container = new DBContainer();
@@ -42,12 +37,9 @@ public class Console
             writer.print("NWC > ");
             stringCommand = input.nextLine();
 
-           Command commad = commandParser.parse(stringCommand);
-           commad.execute();
+           Command command = commandParser.parse(stringCommand);
+           command.execute();
         }
         while(!stringCommand.equals("exit"));
-
-
-        writer.println("Closing NW Center...");
     }
 }
