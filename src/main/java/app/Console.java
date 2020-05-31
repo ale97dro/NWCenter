@@ -5,7 +5,10 @@ import command.Command;
 import commandparser.CommandParser;
 import console.ConsoleWriter;
 import model.DBContainer;
+import model.Environment;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Console
@@ -17,12 +20,14 @@ public class Console
 
     public Console()
     {
-        DBContainer container = new DBContainer();
         stringCommand = "";
-
         input = new Scanner(System.in);
+
+        DBContainer container = new DBContainer();
         writer = new ConsoleWriter(System.out);
-        commandParser = new CommandParser(writer, container);
+        List<String> history = new ArrayList<>();
+        Environment environment = new Environment(container, writer, history);
+        commandParser = new CommandParser(environment);
     }
 
     public void console()
@@ -38,7 +43,9 @@ public class Console
             stringCommand = input.nextLine();
 
            Command command = commandParser.parse(stringCommand);
-           command.execute();
+
+           if(command != null)
+               command.execute();
         }
         while(!stringCommand.equals("exit"));
     }

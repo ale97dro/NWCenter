@@ -1,8 +1,7 @@
 package commandparser;
 
 import command.*;
-import console.ConsoleWriter;
-import model.DBContainer;
+import model.Environment;
 import model.LogStatus;
 
 import java.util.ArrayList;
@@ -10,35 +9,43 @@ import java.util.List;
 
 public class CommandParser
 {
-    private ConsoleWriter writer;
-    private DBContainer container;
+    private Environment environment;
 
-    public CommandParser(ConsoleWriter writer, DBContainer container)
+    public CommandParser(Environment environment)
     {
-        this.container = container;
-        this.writer = writer;
+        this.environment = environment;
     }
 
-    public Command parse (String text)
+    public Command parse (String stringCommand)
     {
-        String[] command = text.split(" ");
+        String[] command = stringCommand.split(" ");
 
         for(int i = 0; i < command.length; i++)
             command[i] = command[i].toLowerCase();
 
+        environment.getHistory().add(stringCommand);
 
-        switch (command[0])
+        try
         {
-            case "clear":
-                return new CleanCommand(writer);
-            case "exit":
-                return new ExitCommand(writer);
-            case "load":
-                return new LoadCommand(command[1], container);
-            case "show":
-                return parseShow(command);
-            case "unload":
-                return new UnloadCommand(command[1], container);
+            switch (command[0])
+            {
+                case "clear":
+                    return new CleanCommand(environment.getWriter());
+                case "exit":
+                    return new ExitCommand(environment.getWriter());
+                case "history":
+                    return new HistoryCommand(environment.getWriter(), environment.getHistory());
+                case "load":
+                    return new LoadCommand(command[1], environment.getContainer());
+                case "show":
+                    return parseShow(command);
+                case "unload":
+                    return new UnloadCommand(command[1], environment.getContainer());
+            }
+        }
+        catch (Exception ex)
+        {
+
         }
 
         return null;
@@ -80,6 +87,6 @@ public class CommandParser
             }
         }
 
-        return ShowCommand.getInstance(container, writer, logsDb, logsStatus, startTime, endTime);
+        return ShowCommand.getInstance(environment.getContainer(), environment.getWriter(), logsDb, logsStatus, startTime, endTime);
     }
 }
