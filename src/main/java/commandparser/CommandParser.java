@@ -37,6 +37,8 @@ public class CommandParser
                 return new LoadCommand(command[1], container);
             case "show":
                 return parseShow(command);
+            case "unload":
+                return new UnloadCommand(command[1], container);
         }
 
         return null;
@@ -77,8 +79,6 @@ public class CommandParser
                     return null;
             }
         }
-
-        //System.out.println("ciao");
 
         return ShowCommand.getInstance(container, writer, logsDb, logsStatus, startTime, endTime);
     }

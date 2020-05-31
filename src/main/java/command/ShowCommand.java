@@ -55,6 +55,8 @@ public class ShowCommand implements Command
         for(LogDB db : dbs)
             filteredLogs.addAll(filterLogsByType(db.getLogs()));
 
+        //todo: implements filtering for dates
+
 
         for(Log l : filteredLogs)
         {

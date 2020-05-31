@@ -20,7 +20,5 @@ public class LoadCommand implements Command
     {
         LogDB db = LogParser.parse(path);
         container.addDb(db);
-
-        //return null;
     }
 }
