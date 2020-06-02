@@ -37,6 +37,8 @@ public class CommandParser
                     return new HistoryCommand(environment.getHistory());
                 case "load":
                     return new LoadCommand(command[1], environment.getContainer());
+                case "reset":
+                    return new ResetCommand(environment);
                 case "show":
                     return parseShow(command);
                 case "unload":

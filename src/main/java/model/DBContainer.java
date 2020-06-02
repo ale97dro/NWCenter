@@ -50,4 +50,9 @@ public class DBContainer
     {
         return dbs;
     }
+
+    public void clear()
+    {
+        dbs.clear();
+    }
 }
