@@ -16,3 +16,5 @@ Options:
 Other commands:
 clean ---> clean the console
 exit ---> close the application
+history ---> all the commands submitted
+reset ---> clean history and dbs
