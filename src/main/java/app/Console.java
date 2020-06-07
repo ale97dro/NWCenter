@@ -57,9 +57,15 @@ public class Console
            {
                Formatter formatter = command.execute();
                if(formatter != null)
-                formatter.printOnConsole(printer);
+                println(formatter.format());
            }
         }
         while(!stringCommand.equals("exit"));
+    }
+
+    private void println(List<String> result)
+    {
+        for(String s : result)
+            printer.println(s);
     }
 }

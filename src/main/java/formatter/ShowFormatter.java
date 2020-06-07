@@ -8,11 +8,11 @@
 
 package formatter;
 
-import console.ConsolePrinter;
 import model.Log;
 import model.LogStatus;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShowFormatter implements Formatter
@@ -25,8 +25,10 @@ public class ShowFormatter implements Formatter
     }
 
     @Override
-    public void printOnConsole(ConsolePrinter printer)
+    public List<String> format()
     {
+        List<String> result = new ArrayList<>();
+
         for(Log l : logs)
         {
             StringBuilder log = new StringBuilder();
@@ -57,8 +59,10 @@ public class ShowFormatter implements Formatter
             else
                 log.append(l.getTime());
 
-            printer.println(log.toString());
+            result.add(log.toString());
         }
+
+        return result;
     }
 
     private String add0(int value)

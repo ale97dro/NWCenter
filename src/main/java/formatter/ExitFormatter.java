@@ -8,13 +8,17 @@
 
 package formatter;
 
-import console.ConsolePrinter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExitFormatter implements Formatter
 {
     @Override
-    public void printOnConsole(ConsolePrinter printer)
+    public List<String> format()
     {
-        printer.println("Closing NW Center...");
+        List<String> result = new ArrayList<>();
+        result.add("Closing NW Center...");
+
+        return result;
     }
 }

@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
@@ -71,9 +72,9 @@ public class ShowFormatterTest
     @Test
     public void printOnConsoleTest()
     {
-        formatter.printOnConsole(printer);
-
-        ArgumentCaptor<String> argument = ArgumentCaptor.forClass(String.class);
-        verify(printer, times(2)).println(argument.capture());
+        List<String> result = formatter.format();
+        assertEquals(2, result.size());
+        assertEquals("11:17:10 07-06-2020 google.com FAILED", result.get(0));
+        assertEquals("11:17:10 07-10-2020 google.com 12.5", result.get(1));
     }
 }

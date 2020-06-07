@@ -17,6 +17,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
@@ -50,9 +51,10 @@ public class HistoryFormatterTest
     @Test
     public void printOnConsoleTest()
     {
-        formatter.printOnConsole(printer);
+        List<String> result = formatter.format();
 
-        ArgumentCaptor<String> argument = ArgumentCaptor.forClass(String.class);
-        verify(printer, times(2)).println(argument.capture());
+        assertEquals(2, result.size());
+        assertEquals("command0", result.get(0));
+        assertEquals("command1", result.get(1));
     }
 }

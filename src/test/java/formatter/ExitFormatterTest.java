@@ -8,22 +8,17 @@
 
 package formatter;
 
-import console.ConsolePrinter;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 public class ExitFormatterTest
 {
-    @Mock
-    private ConsolePrinter printer;
-
     private ExitFormatter formatter;
 
     @Before
@@ -43,9 +38,11 @@ public class ExitFormatterTest
     @Test
     public void printOnConsoleTest()
     {
-        formatter.printOnConsole(printer);
+        String expectedOutput = "Closing NW Center...";
+        List<String> result = formatter.format();
 
-        ArgumentCaptor<String> argument = ArgumentCaptor.forClass(String.class);
-        verify(printer, times(1)).println(argument.capture());
+        assertEquals(1, result.size());
+        assertEquals(expectedOutput, result.get(0));
+
     }
 }

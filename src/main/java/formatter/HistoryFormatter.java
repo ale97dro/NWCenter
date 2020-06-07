@@ -8,8 +8,7 @@
 
 package formatter;
 
-import console.ConsolePrinter;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryFormatter implements Formatter
@@ -22,9 +21,13 @@ public class HistoryFormatter implements Formatter
     }
 
     @Override
-    public void printOnConsole(ConsolePrinter printer)
+    public List<String> format()
     {
+        List<String> result = new ArrayList<>();
+
         for(int i = 0; i < history.size() - 1; i++)
-            printer.println(history.get(i));
+            result.add(history.get(i));
+
+        return result;
     }
 }

@@ -8,9 +8,9 @@
 
 package formatter;
 
-import console.ConsolePrinter;
+import java.util.List;
 
 public interface Formatter
 {
-    void printOnConsole(ConsolePrinter printer);
+    List<String> format();
 }
