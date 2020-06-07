@@ -63,4 +63,9 @@ public class DBContainer
     {
         dbs.clear();
     }
+
+    public int size()
+    {
+        return dbs.size();
+    }
 }

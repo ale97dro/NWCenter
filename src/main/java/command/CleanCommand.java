@@ -8,7 +8,6 @@
 
 package command;
 
-import console.ConsolePrinter;
 import formatter.Formatter;
 
 public class CleanCommand implements Command
