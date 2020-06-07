@@ -8,12 +8,10 @@
 
 package formatter;
 
-import console.ConsolePrinter;
 import model.Log;
 import model.LogStatus;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -23,14 +21,13 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ShowFormatterTest
 {
     @Mock
     private List<Log> logs;
-    @Mock
-    private ConsolePrinter printer;
     @Mock
     private Iterator<Log> iterator;
 
