@@ -13,6 +13,10 @@ do
 	day=$(date +"%F")
 	result=$(ping -c 1 google.com)
 
+	if [ ! -f "$day" ]; then
+		echo "BASH" >> $day
+	fi
+
 	echo $time >> $day
 	echo $result >> $day
 	sleep 5

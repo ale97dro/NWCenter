@@ -136,10 +136,4 @@ public class LogParser
         return date.split(" ")[0];
     }
 
-    private static boolean isPing(String command)
-    {
-        String ping = command.split(" ")[0];
-
-        return ping.equals("PING");
-    }
 }

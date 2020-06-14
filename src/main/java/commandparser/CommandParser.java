@@ -51,6 +51,8 @@ public class CommandParser
                     return parseShow(command);
                 case "unload":
                     return new UnloadCommand(command[1], environment.getContainer());
+                default:
+                    return null;
             }
         }
         catch (Exception ex)
@@ -61,7 +63,7 @@ public class CommandParser
         return null;
     }
 
-    private Command parseShow(String[] command)
+    private ShowCommand parseShow(String[] command)
     {
         /*
             0: show

@@ -1,0 +1,6 @@
+Tue May 26 05:32:30 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. --- google.com ping statistics --- 1 packets transmitted, 0 received, 100% packet loss, time 0ms
+Tue May 26 05:34:05 CEST 2020
+
+Tue May 26 05:35:45 CEST 2020
+PING google.com (192.168.0.1) 56(84) bytes of data. 64 bytes from home (192.168.0.1): icmp_req=1 ttl=55 time=13.8 ms --- google.com ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 13.804/13.804/13.804/0.000 ms

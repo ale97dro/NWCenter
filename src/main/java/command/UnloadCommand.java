@@ -26,7 +26,6 @@ public class UnloadCommand implements Command
     public Formatter execute()
     {
         container.removeDb(dbName);
-
         return null;
     }
 }
