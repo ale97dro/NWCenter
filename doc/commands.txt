@@ -3,7 +3,7 @@ load <db_path> ---> add a new log db
 unload <db_path> ---> delete a log db
 
 Show logs:
-show [-f|-s] [-db <db_name>] [-st <start_time>] [-et <end_time>] 
+show [-f|-s] [-db <db_name>] [-st <start_time>] [-et <end_time>] [-t <max_time>]
 
 Options:
  -f: show only failed logs
@@ -11,6 +11,7 @@ Options:
  -db: choose a db (if not, show all db). You can select more than 1 db by reiterate the option (example: show -db db1 -db db2)
  -st: choose a start time --> formats: YYYY-MM-DD or YYYY-MM-DD-mm-hh or mm:hh. The format must be the same of -et
  -et: choose an end time --> formats: YYYY-MM-DD or YYYY-MM-DD-mm-hh or mm:hh. The format must be the same of -st
+ -t: set a max time in milliseconds you want to show. 0 is a wildcard that means all logs and it's the default value
 
 
 Other commands:

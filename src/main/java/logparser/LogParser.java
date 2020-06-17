@@ -24,7 +24,7 @@ import java.util.List;
 public class LogParser
 {
     private static final int SUCCEED_PARTS = 36;
-    private static final int FAILED_PARTS = 22;
+    //private static final int FAILED_PARTS = 22; //this value is variable: depends by the type of error
 
     public static LogDB parse(String path)
     {
@@ -42,16 +42,12 @@ public class LogParser
                     isDate(date);
                     String command = in.readLine();
 
-                    //if (isPing(command))
-                    //{
-                        String[] commandParts = command.split(" ");
+                    String[] commandParts = command.split(" ");
 
-                        if (commandParts.length == SUCCEED_PARTS)
-                            logs.add(succeedPing(commandParts, date));
-                        else
-                            //if (commandParts.length == FAILED_PARTS)
-                                logs.add(failedPing(commandParts, date));
-                    //}
+                    if (commandParts.length == SUCCEED_PARTS)
+                        logs.add(succeedPing(commandParts, date));
+                    else
+                        logs.add(failedPing(commandParts, date));
 
                 }
             }
@@ -111,7 +107,7 @@ public class LogParser
     {
         String[] dateParts = date.split(" ");
 
-        String month =  dateParts[1];
+        String month =  convertToMonth(dateParts[1]);
         int day = Integer.parseInt(dateParts[2]);
         String time = dateParts[3];
         int year = Integer.parseInt(dateParts[5]);
@@ -136,4 +132,36 @@ public class LogParser
         return date.split(" ")[0];
     }
 
+    private static String convertToMonth(String month)
+    {
+        switch (month.toUpperCase())
+        {
+            case "JAN":
+                return "JANUARY";
+            case "FEB":
+                return "FEBRUARY";
+            case "MAR":
+                return "MARCH";
+            case "APR":
+                return "APRIL";
+            case "MAY":
+                return "MAY";
+            case "JUN":
+                return "JUNE";
+            case "JUL":
+                return "JULY";
+            case "AUG":
+                return "AUGUST";
+            case "SEP":
+                return "SEPTEMBER";
+            case "OCT":
+                return "OCTOBER";
+            case "NOV":
+                return "NOVEMBER";
+            case "DEC":
+                return "DECEMBER";
+            default: //todo: implements with exception
+                return "JANUARY";
+        }
+    }
 }

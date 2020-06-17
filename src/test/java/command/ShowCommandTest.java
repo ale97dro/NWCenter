@@ -42,12 +42,13 @@ public class ShowCommandTest
     private LogStatus status;
     private String startTime;
     private String endTime;
+    private double maxTime;
 
     @Before
     public void setup()
     {
         MockitoAnnotations.initMocks(this);
-        command = ShowCommand.getInstance(container, dbs, status, startTime, endTime);
+        command = ShowCommand.getInstance(container, dbs, status, startTime, endTime, maxTime);
     }
 
     @Test
@@ -82,7 +83,7 @@ public class ShowCommandTest
 
         //Setup dbs
 
-        command = ShowCommand.getInstance(container, dbs, status, startTime, endTime);
+        command = ShowCommand.getInstance(container, dbs, status, startTime, endTime, maxTime);
 
         Formatter formatter = command.execute();
         assertEquals(ShowFormatter.class, formatter.getClass());

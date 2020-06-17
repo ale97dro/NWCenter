@@ -73,6 +73,7 @@ public class CommandParser
         List<String> logsDb = new ArrayList<>();
         String startTime = "";
         String endTime = "";
+        double maxTime = 0;
 
 
         for(int i = 1; i < command.length; i++)
@@ -94,11 +95,14 @@ public class CommandParser
                 case "-et":
                     endTime = command[++i];
                     break;
+                case "-t":
+                    maxTime = Double.parseDouble(command[++i]);
+                    break;
                 default:
                     return null;
             }
         }
 
-        return ShowCommand.getInstance(environment.getContainer(), logsDb, logsStatus, startTime, endTime);
+        return ShowCommand.getInstance(environment.getContainer(), logsDb, logsStatus, startTime, endTime, maxTime);
     }
 }

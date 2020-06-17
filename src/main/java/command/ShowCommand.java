@@ -24,10 +24,11 @@ public class ShowCommand implements Command
     private LogStatus logsStatus;
     private String startTime;
     private String endTime;
+    private double maxTime;
 
-    public static ShowCommand getInstance(DBContainer container, List<String> dbs, LogStatus logsStatus, String startTime, String endTime)
+    public static ShowCommand getInstance(DBContainer container, List<String> dbs, LogStatus logsStatus, String startTime, String endTime, double maxTime)
     {
-        ShowCommand command = new ShowCommand(logsStatus, startTime, endTime);
+        ShowCommand command = new ShowCommand(logsStatus, startTime, endTime, maxTime);
 
         if(dbs.size() == 0)
             command.dbs = container.getAllDbs();
@@ -44,25 +45,33 @@ public class ShowCommand implements Command
         return command;
     }
 
-    private ShowCommand(LogStatus logsStatus, String startTime, String endTime)
+    private ShowCommand(LogStatus logsStatus, String startTime, String endTime, double maxTime)
     {
         this.logsStatus = logsStatus;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.maxTime = maxTime;
     }
 
 
     @Override
     public Formatter execute()
     {
+        List<Log> tempFiltered;
         List<Log> filteredLogs = new ArrayList<>();
 
-        //for each db, extract logs
+        //for each db, extract logs and filter them
         for(LogDB db : dbs)
-            filteredLogs.addAll(filterLogsByType(db.getLogs()));
+        {
+            //tempFiltered.addAll(filterLogsByType(db.getLogs()));
+            tempFiltered = filterLogsByType(db.getLogs());
+            tempFiltered = filterLogsByMaxTime(tempFiltered);
+            //todo: implements filtering for dates
 
-        //todo: implements filtering for dates
 
+            //once all the filtering are done, save the result
+            filteredLogs.addAll(tempFiltered);
+        }
 
         return new ShowFormatter(filteredLogs);
     }
@@ -79,6 +88,17 @@ public class ShowCommand implements Command
         }
         else
             filteredLogs.addAll(logs);
+
+        return filteredLogs;
+    }
+
+    private List<Log> filterLogsByMaxTime(List<Log> logs)
+    {
+        List<Log> filteredLogs = new ArrayList<>();
+
+        for(Log l : logs)
+            if(l.getTime() >= maxTime)
+                filteredLogs.add(l);
 
         return filteredLogs;
     }
