@@ -71,7 +71,7 @@ public class ShowFormatterTest
     {
         List<String> result = formatter.format();
         assertEquals(2, result.size());
-        assertEquals("11:17:10 07-06-2020 google.com FAILED", result.get(0));
-        assertEquals("11:17:10 07-10-2020 google.com 12.5", result.get(1));
+        assertEquals("11:17:10 07-06-2020 google.com FAILED\n", result.get(0));
+        assertEquals("11:17:10 07-10-2020 google.com 12.5\n", result.get(1));
     }
 }

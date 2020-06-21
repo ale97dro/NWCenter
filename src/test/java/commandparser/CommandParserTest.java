@@ -52,7 +52,7 @@ public class CommandParserTest
     {
         Command command = parser.parse("clear");
         verify(env, times(1)).getHistory();
-        assertEquals(CleanCommand.class, command.getClass());
+        assertEquals(ClearCommand.class, command.getClass());
     }
 
     @Test

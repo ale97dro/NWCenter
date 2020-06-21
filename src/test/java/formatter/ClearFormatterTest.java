@@ -10,32 +10,22 @@ package formatter;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.when;
 
-public class HistoryFormatterTest
+public class ClearFormatterTest
 {
-    @Mock
-    private List<String> history;
-
-    private HistoryFormatter formatter;
+    private ClearFormatter formatter;
+    private String expectedClearOutput;
 
     @Before
     public void setup()
     {
-        MockitoAnnotations.initMocks(this);
-
-        for(int i = 0; i < 3; i++)
-            when(history.get(i)).thenReturn("command" + i);
-        when(history.size()).thenReturn(3);
-
-        formatter = new HistoryFormatter(history);
+        expectedClearOutput = "clearOutput";
+        formatter = new ClearFormatter(expectedClearOutput);
     }
 
     @Test
@@ -49,8 +39,7 @@ public class HistoryFormatterTest
     {
         List<String> result = formatter.format();
 
-        assertEquals(2, result.size());
-        assertEquals("command0\n", result.get(0));
-        assertEquals("command1\n", result.get(1));
+        assertEquals(1, result.size());
+        assertEquals(expectedClearOutput, result.get(0));
     }
 }

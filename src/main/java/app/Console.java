@@ -8,7 +8,7 @@
 
 package app;
 
-import command.CleanCommand;
+import command.ClearCommand;
 import command.Command;
 import commandparser.CommandParser;
 import console.ConsolePrinter;
@@ -45,7 +45,7 @@ public class Console
         //ProcessBuilder pb = new ProcessBuilder("clear");
         //Process process = Runtime.getRuntime().exec("clear");
 
-        new CleanCommand(environment.getOs()).execute();
+        new ClearCommand(environment.getOs()).execute();
 
         do
         {
@@ -67,6 +67,7 @@ public class Console
     private void println(List<String> result)
     {
         for(String s : result)
-            printer.println(s);
+            //printer.println(s);
+            printer.print(s);
     }
 }

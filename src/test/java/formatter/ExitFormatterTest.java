@@ -38,7 +38,7 @@ public class ExitFormatterTest
     @Test
     public void printOnConsoleTest()
     {
-        String expectedOutput = "Closing NW Center...";
+        String expectedOutput = "Closing NW Center...\n";
         List<String> result = formatter.format();
 
         assertEquals(1, result.size());

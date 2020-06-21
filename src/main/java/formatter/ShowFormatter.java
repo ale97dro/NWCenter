@@ -59,7 +59,7 @@ public class ShowFormatter implements Formatter
             else
                 log.append(l.getTime());
 
-            result.add(log.toString());
+            result.add(log.toString() + "\n");
         }
 
         return result;

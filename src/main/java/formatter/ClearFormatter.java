@@ -8,17 +8,20 @@
 
 package formatter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class ExitFormatter implements Formatter
+public class ClearFormatter implements Formatter
 {
+    private String clearOutput;
+
+    public ClearFormatter(String clearOutput)
+    {
+        this.clearOutput = clearOutput;
+    }
+
     @Override
     public List<String> format()
     {
-        List<String> result = new ArrayList<>();
-        result.add("Closing NW Center...\n");
-
-        return result;
+        return Arrays.asList(clearOutput);
     }
 }

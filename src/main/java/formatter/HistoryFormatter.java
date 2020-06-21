@@ -26,7 +26,7 @@ public class HistoryFormatter implements Formatter
         List<String> result = new ArrayList<>();
 
         for(int i = 0; i < history.size() - 1; i++)
-            result.add(history.get(i));
+            result.add(history.get(i) + "\n");
 
         return result;
     }
