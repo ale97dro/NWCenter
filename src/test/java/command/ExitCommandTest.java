@@ -34,7 +34,6 @@ public class ExitCommandTest
     @Test
     public void executeTest()
     {
-        //assertNull(command.execute());
         Formatter formatter = command.execute();
         assertEquals(ExitFormatter.class, formatter.getClass());
     }

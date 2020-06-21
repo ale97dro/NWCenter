@@ -15,12 +15,10 @@ import java.io.IOException;
 
 public class ClearCommand implements Command
 {
-    //private ConsolePrinter writer;
     private String os;
 
     public ClearCommand(String os)
     {
-        //this.writer = writer;
         this.os = os;
     }
 
@@ -29,9 +27,6 @@ public class ClearCommand implements Command
     {
         //out.print("\033[H\033[2J");
         //out.flush();
-
-//        writer.print("\033[H\033[2J");
-//       writer.flush();
 
         if(os.toUpperCase().contains("WINDOWS"))
         {
