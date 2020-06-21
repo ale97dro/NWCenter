@@ -15,8 +15,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 public class EnvironmentTest
 {
@@ -24,15 +23,15 @@ public class EnvironmentTest
     private DBContainer container;
     @Mock
     private List<String> history;
-
+    private String expectedOs;
     private Environment env;
 
     @Before
     public void setup()
     {
         MockitoAnnotations.initMocks(this);
-
-        env = new Environment(container, history);
+        expectedOs = "Windows 10";
+        env = new Environment(container, history, expectedOs);
     }
 
     @Test
@@ -51,5 +50,11 @@ public class EnvironmentTest
     public void getHistory()
     {
         assertSame(history, env.getHistory());
+    }
+
+    @Test
+    public void getOsTest()
+    {
+        assertEquals(expectedOs, env.getOs());
     }
 }

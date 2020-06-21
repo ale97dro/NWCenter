@@ -26,6 +26,7 @@ public class Console
     private CommandParser commandParser;
     private Scanner input;
     private String stringCommand;
+    private Environment environment;
 
     public Console()
     {
@@ -35,7 +36,7 @@ public class Console
         DBContainer container = new DBContainer();
         printer = new ConsolePrinter(System.out);
         List<String> history = new ArrayList<>();
-        Environment environment = new Environment(container, history);
+        environment = new Environment(container, history, System.getProperty("os.name"));
         commandParser = new CommandParser(environment);
     }
 
@@ -44,7 +45,7 @@ public class Console
         //ProcessBuilder pb = new ProcessBuilder("clear");
         //Process process = Runtime.getRuntime().exec("clear");
 
-        new CleanCommand().execute();
+        new CleanCommand(environment.getOs()).execute();
 
         do
         {

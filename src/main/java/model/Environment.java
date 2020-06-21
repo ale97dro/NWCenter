@@ -14,11 +14,13 @@ public class Environment
 {
     private DBContainer container;
     private List<String> history;
+    private String os;
 
-    public Environment(DBContainer container, List<String> history)
+    public Environment(DBContainer container, List<String> history, String os)
     {
         this.container = container;
         this.history = history;
+        this.os = os;
     }
 
     public DBContainer getContainer()
@@ -29,5 +31,10 @@ public class Environment
     public List<String> getHistory()
     {
         return history;
+    }
+
+    public String getOs()
+    {
+        return os;
     }
 }

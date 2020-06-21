@@ -38,7 +38,7 @@ public class CommandParser
             switch (command[0])
             {
                 case "clear":
-                    return new CleanCommand();
+                    return new CleanCommand(environment.getOs());
                 case "exit":
                     return new ExitCommand();
                 case "history":
