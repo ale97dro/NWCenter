@@ -22,6 +22,7 @@ public class LogDBTest
     @Mock
     private List<Log> expectedLogs;
     private String expectedName;
+    private LogsType expectedLogsType;
 
     private LogDB db;
 
@@ -30,8 +31,9 @@ public class LogDBTest
     {
         MockitoAnnotations.initMocks(this);
         expectedName = "TEST_DB";
+        expectedLogsType = LogsType.BASH;
 
-        db = new LogDB(expectedName, expectedLogs);
+        db = new LogDB(expectedName, expectedLogs, expectedLogsType);
     }
 
     @Test
@@ -50,5 +52,11 @@ public class LogDBTest
     public void getNameTest()
     {
         assertSame(expectedLogs, db.getLogs());
+    }
+
+    @Test
+    public void getLogsTypeTest()
+    {
+        assertEquals(expectedLogsType, db.getLogsType());
     }
 }

@@ -14,11 +14,13 @@ public class LogDB
 {
     private String name;
     private List<Log> logs;
+    private LogsType logsType;
 
-    public LogDB(String name, List<Log> logs)
+    public LogDB(String name, List<Log> logs, LogsType logsType)
     {
         this.name = name;
         this.logs = logs;
+        this.logsType = logsType;
     }
 
     public List<Log> getLogs()
@@ -29,5 +31,10 @@ public class LogDB
     public String getName()
     {
         return name;
+    }
+
+    public LogsType getLogsType()
+    {
+        return logsType;
     }
 }

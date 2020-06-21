@@ -114,6 +114,8 @@ public class CommandParserTest
         assertEquals(ShowCommand.class, command.getClass());
         command = parser.parse("show -et date");
         assertEquals(ShowCommand.class, command.getClass());
+        command = parser.parse("show -t 10");
+        assertEquals(ShowCommand.class, command.getClass());
 
         //Invalid option
         command = parser.parse("show f");

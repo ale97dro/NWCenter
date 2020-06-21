@@ -12,6 +12,7 @@ import exception.DateParseException;
 import model.Log;
 import model.LogDB;
 import model.LogStatus;
+import model.LogsType;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -32,11 +33,13 @@ public class LogParser
 
         path = path.replace("\\", "/");
 
+        String logsType = null;
         try(BufferedReader in = new BufferedReader(new FileReader(path)))
         {
             try
             {
                 String date = "";
+                logsType = in.readLine();
                 while((date = in.readLine()) != null)
                 {
                     isDate(date);
@@ -59,7 +62,7 @@ public class LogParser
         {
         }
 
-        return new LogDB(dbNameParse(path), logs);
+        return new LogDB(dbNameParse(path), logs, LogsType.valueOf(logsType));
     }
 
     private static Log succeedPing(String[] command, String date)
