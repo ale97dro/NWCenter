@@ -22,9 +22,10 @@ import java.util.Scanner;
 
 /**
  * Container to simulate a command-line console.
- * It provides a loop in which user can perform his tasks
+ * It provides a loop in which user can perform his tasks.
  *
  * @author Alessandro Bianchi
+ * @since v1.0
  */
 public class Console
 {
@@ -38,6 +39,8 @@ public class Console
     /**
      * Public constructor for Console
      * Instance Java scanner, {@link model.DBContainer}, history, {@link commandparser.CommandParser} and the {@link model.Environment}
+     *
+     * @since v1.0
      */
     public Console()
     {
@@ -54,6 +57,8 @@ public class Console
     /**
      * Provides the loop to perform tasks.
      * This method calls a parser that create the command you want to perform.
+     *
+     * @since v1.0
      */
     public void console()
     {
@@ -80,8 +85,10 @@ public class Console
     }
 
     /**
-     * Print something on the console
-     * @param result List of strings you want to print
+     * Print something on the console.
+     * @param result List of strings you want to print.
+     *
+     * @since v1.0
      */
     private void println(List<String> result)
     {

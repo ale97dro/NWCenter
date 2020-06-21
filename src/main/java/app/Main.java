@@ -10,6 +10,9 @@ package app;
 
 /**
  * Launch the application
+ *
+ * @author Alessandro Bianchi
+ * @since v1.0
  */
 public class Main
 {
